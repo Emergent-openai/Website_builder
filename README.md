@@ -30,10 +30,16 @@ This project was iterated end-to-end with Emergent + GPT-5.4 (product direction,
 
 ### Emergent Chat / Iteration Artifact
 
-Per showcase requirement, this repo includes a short iteration timelapse clip.
+Per showcase requirement, this repo includes iteration snapshots showing the build progression with Emergent.
 
-- Timelapse: ![Emergent UI Timelapse](showcase/emergent_ui_timelapse.gif)
+- Auth Page
+  ![Auth Page](tests/img/emergent_iteration_1.png)
 
-If you want to attach direct Emergent chat screenshots, place them under ./showcase/chat/ and link them here.
+- Builder Workspace
+  ![Builder Workspace](tests/img/emergent_iteration_2.png)
 
-Image files are stored directly in the repo folder: showcase/
+- Auth Showcase Wall
+  ![Auth Showcase Wall](tests/img/emergent_iteration_3.png)
+
+- Dashboard
+  ![Dashboard](tests/img/emergent_iteration_4.png)

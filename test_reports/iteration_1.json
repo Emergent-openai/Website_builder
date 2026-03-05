@@ -1,0 +1,60 @@
+{
+  "summary": "Executed backend API regression tests and frontend end-to-end validation on the public preview URL. Backend CRUD passed; most builder UI flows passed, but drag-and-drop add and section reorder via drag remain failing in repeated runs.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Builder drag-and-drop library",
+        "issue": "Dragging a library section handle onto the canvas does not add a section (count unchanged across 3 attempts).",
+        "selector": "[data-testid=\"library-section-drag-handle-blog-momentum\"] -> [data-testid=\"canvas-page-dropzone\"]",
+        "priority": "HIGH"
+      },
+      {
+        "component": "Canvas section reorder",
+        "issue": "Drag reorder did not reliably move section order in automated interaction; behavior appears non-functional or unstable under pointer drag.",
+        "selector": "[data-testid^=\"canvas-section-drag-handle-\"]",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [
+      {
+        "flow": "DndContext library-to-canvas and sortable reorder",
+        "issue": "Drag operations fail while click-to-add works, indicating DnD path issue rather than general section creation.",
+        "affected_selectors": [
+          "[data-testid=\"library-section-drag-handle-blog-momentum\"]",
+          "[data-testid=\"canvas-page-dropzone\"]",
+          "[data-testid^=\"canvas-section-drag-handle-\"]"
+        ]
+      }
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_website_builder_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Fix/verify drag-and-drop from library into canvas in real user interaction and automation.",
+    "Fix/verify sortable section reorder interaction with dnd-kit pointer events and drop target handling.",
+    "Run manual + automated retest specifically for DnD flows after fix."
+  ],
+  "critical_code_review_comments": [
+    "BuilderProjectCreate/Update models accept unconstrained strings; consider adding min_length and stronger validation for required fields.",
+    "DnD logic likely impacted by interaction layer (pointer/scroll/drop target), since click-to-add and save persistence are healthy."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_website_builder_api.py"
+  ],
+  "success_rate": {
+    "backend": "100%",
+    "frontend": "83%"
+  },
+  "seed_data_creation": "Backend test data with TEST_Builder_* prefixes created; current test file now cleans up created projects per test. Some legacy TEST_ cards from earlier run may still exist.",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Verified passes: dashboard load/create/open, project delete, starter pages, click-to-add, duplicate/delete section, page create/switch/delete, properties content/style edits, save+reload persistence, viewport/focus mode. Repeated failures remain only on drag-based add/reorder.",
+  "rca of the issue": "Repro: Create/open project -> Library tab -> drag library handle to canvas dropzone, section count unchanged; drag section handle to reorder, order not reliably updated. Likely root cause is dnd-kit pointer/drop interaction (sensor activation/over target resolution within ScrollArea/canvas), not API persistence, because click-to-add and save/update endpoints work. Mitigation: instrument onDragStart/onDragEnd payloads (active/over IDs), verify over.id resolves to canvas-dropzone/section IDs, and validate pointer events/drag handle layering in sidebar + canvas containers."
+}

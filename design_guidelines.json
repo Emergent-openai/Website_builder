@@ -1,0 +1,223 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "The Creative Studio Builder",
+      "archetype": "Archetype 7: Electric & Neon (The Future Builder)",
+      "vibe": "Professional, High-Voltage, Precision, Limitless",
+      "core_principles": [
+        "Fusion over Imitation: Mix raw brutalism with refined glassmorphism.",
+        "Editor is the Cockpit: Dark, technical, high-contrast UI for the builder; Clean canvas for the site.",
+        "Motion is Feedback: Every drag, drop, and click must feel physical and magnetic."
+      ]
+    },
+    "colors": {
+      "palette": {
+        "base": {
+          "background": "#09090B",
+          "foreground": "#FAFAFA",
+          "canvas": "#F4F4F5",
+          "canvas_dot": "#E4E4E7"
+        },
+        "primary": {
+          "default": "#6366F1",
+          "hover": "#4F46E5",
+          "foreground": "#FFFFFF",
+          "glow": "0 0 20px rgba(99, 102, 241, 0.5)"
+        },
+        "accent": {
+          "default": "#D9F99D",
+          "foreground": "#000000",
+          "purple": "#A855F7",
+          "cyan": "#06B6D4"
+        },
+        "ui": {
+          "border": "#27272A",
+          "border_active": "#52525B",
+          "card": "#18181B",
+          "card_hover": "#27272A",
+          "muted": "#71717A"
+        },
+        "status": {
+          "success": "#22C55E",
+          "error": "#EF4444",
+          "warning": "#EAB308"
+        }
+      },
+      "usage_rules": {
+        "gradients": "Do NOT use full-screen gradients. Use subtle noise textures or 'glow' spots behind key elements.",
+        "text_contrast": "Ensure WCAG AA compliance. Use #FAFAFA for primary text in dark mode, not #FFFFFF.",
+        "active_states": "Active tools/sections must glow or have a high-contrast border (Electric Indigo)."
+      }
+    },
+    "typography": {
+      "font_family": {
+        "headings": "Outfit, sans-serif",
+        "body": "Manrope, sans-serif",
+        "ui_technical": "JetBrains Mono, monospace"
+      },
+      "scale": {
+        "display": "text-5xl md:text-7xl font-bold tracking-tight",
+        "h1": "text-4xl font-semibold tracking-tight",
+        "h2": "text-3xl font-medium tracking-tight",
+        "h3": "text-2xl font-medium",
+        "body_lg": "text-lg leading-relaxed",
+        "body": "text-base leading-relaxed",
+        "ui_label": "text-xs font-bold uppercase tracking-widest text-muted-foreground",
+        "ui_value": "text-sm font-mono text-accent-foreground"
+      },
+      "rules": {
+        "headings": "Use 'Outfit' for all section headers and modal titles. Use 'Manrope' for long content.",
+        "ui": "Use 'JetBrains Mono' for pixel values, hex codes, and spacing controls.",
+        "uppercase": "All UI labels (e.g., 'WIDTH', 'HEIGHT', 'PADDING') must be uppercase and tracking-widest."
+      }
+    },
+    "spacing": {
+      "scale": [
+        "0",
+        "1",
+        "2",
+        "4",
+        "6",
+        "8",
+        "12",
+        "16",
+        "24",
+        "32",
+        "48",
+        "64"
+      ],
+      "layout_rules": {
+        "container_padding": "p-6 or p-8 for panels",
+        "section_gap": "gap-4 for dense UI, gap-8 for canvas sections",
+        "touch_target": "Minimum 44px height for all interactive inputs."
+      }
+    },
+    "visual_enhancers": {
+      "radius": {
+        "default": "rounded-md",
+        "sharp": "rounded-none",
+        "pill": "rounded-full"
+      },
+      "shadows": {
+        "panel": "0 8px 32px rgba(0, 0, 0, 0.4)",
+        "card": "0 1px 2px rgba(0, 0, 0, 0.2)",
+        "drag": "0 20px 50px rgba(0, 0, 0, 0.5)"
+      },
+      "borders": {
+        "default": "border border-border",
+        "active": "border-2 border-primary",
+        "glass": "border border-white/10"
+      },
+      "effects": {
+        "glassmorphism": "backdrop-blur-xl bg-black/40 border-white/10",
+        "tracing_beam": "Use for selecting sections. Animated gradient border.",
+        "noise": "Use a subtle SVG noise overlay on the dark background to prevent banding."
+      }
+    }
+  },
+  "layout_strategies": {
+    "builder_workspace": {
+      "structure": "Fixed layout. Left Sidebar (Library) + Top Bar (Actions) + Right Sidebar (Properties) + Center Canvas.",
+      "canvas_area": {
+        "background": "bg-canvas (Light Gray) with dot-grid pattern",
+        "behavior": "Infinite scroll feel (even if fixed). Center the page content.",
+        "shadow": "Page preview must have shadow-2xl to separate from canvas."
+      },
+      "panels": {
+        "style": "Glassmorphism or Solid Dark (bg-card).",
+        "behavior": "Collapsible or Floating. Must not obscure the canvas unless necessary."
+      }
+    },
+    "section_library": {
+      "grid": "grid-cols-1 md:grid-cols-2 gap-4",
+      "card_style": "Aspect ratio 16:9 previews. Minimalist. Hover: Zoom preview + 'Add' button appears."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/25 transition-all duration-200 font-medium",
+      "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+      "ghost": "hover:bg-accent hover:text-accent-foreground",
+      "icon": "h-9 w-9 p-0 rounded-md hover:bg-muted"
+    },
+    "inputs": {
+      "default": "bg-input/50 border-input focus:border-primary focus:ring-1 focus:ring-primary font-mono text-sm",
+      "label": "text-xs font-bold uppercase text-muted-foreground mb-1.5 block"
+    },
+    "cards": {
+      "base": "bg-card text-card-foreground border border-border shadow-sm",
+      "hover_effect": "hover:border-primary/50 hover:shadow-md transition-all duration-300"
+    },
+    "drag_overlay": {
+      "style": "opacity-90 scale-105 shadow-2xl cursor-grabbing border-2 border-primary rotate-2 z-50",
+      "drop_zone": "border-2 border-dashed border-primary/50 bg-primary/5 rounded-lg transition-all"
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_backgrounds": [
+        {
+          "url": "https://images.unsplash.com/photo-1763259502867-3602fc66f665?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Abstract Colorful Shapes",
+          "category": "hero"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1767482712541-d104b3826d3d?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Iridescent Blobs",
+          "category": "hero"
+        }
+      ],
+      "team": [
+        {
+          "url": "https://images.unsplash.com/photo-1650213236604-6dd826c965c0?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Professional Woman BW",
+          "category": "team"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1675186914580-94356f7c012c?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Smiling Professional BW",
+          "category": "team"
+        }
+      ],
+      "office": [
+        {
+          "url": "https://images.unsplash.com/photo-1696087225391-eb97abf5ba20?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Modern Desk Setup",
+          "category": "feature"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1764755932155-dabbee87df7e?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Laptop Sunlight",
+          "category": "feature"
+        }
+      ]
+    },
+    "icons": {
+      "library": "lucide-react",
+      "preferred_set": ["Layout", "Type", "Image", "Settings", "Layers", "Plus", "Trash2", "Move", "Monitor", "Smartphone"]
+    }
+  },
+  "interactions": {
+    "hover": "translate-y-[-1px] transition-transform duration-200",
+    "click": "scale-95 transition-transform duration-100",
+    "drag": "cursor-grab active:cursor-grabbing",
+    "toast": "Use sonner for all notifications (Save success, Error, etc)."
+  },
+  "universal_guidelines": {
+    "do_not": [
+      "Use generic gradients.",
+      "Use 'Inter' for headings.",
+      "Center text by default.",
+      "Use 'alert' or native 'confirm' dialogs (use Shadcn Dialog)."
+    ],
+    "must_do": [
+      "Use data-testid on all interactive elements.",
+      "Implement proper contrast ratios.",
+      "Use Sonner for toasts.",
+      "Ensure all inputs have labels.",
+      "Use 'lucide-react' for icons."
+    ],
+    "accessibility": "Ensure keyboard navigation works for the builder panels. Focus states must be visible (ring-2 ring-primary)."
+  },
+  "instructions_to_main_agent": "You are building a high-performance React builder. Use the provided design tokens. Implement the 'Hybrid' theme: Dark UI for the tool, Light Canvas for the content. Use 'dnd-kit' or 'react-beautiful-dnd' if drag and drop logic is needed, but focus on the visual wrapper first. Ensure the 'Section Library' looks like a premium design catalog, not a file picker."
+}

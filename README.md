@@ -35,11 +35,11 @@ Per showcase requirement, this repo includes iteration snapshots showing the bui
 - Auth Page
   ![Auth Page](tests/img/emergent_iteration_1.png)
 
-- Builder Workspace
-  ![Builder Workspace](tests/img/emergent_iteration_2.png)
-
 - Auth Showcase Wall
   ![Auth Showcase Wall](tests/img/emergent_iteration_3.png)
 
 - Dashboard
   ![Dashboard](tests/img/emergent_iteration_4.png)
+
+- Builder Workspace
+  ![Builder Workspace](tests/img/emergent_iteration_2.png)
